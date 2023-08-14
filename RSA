@@ -1,12 +1,6 @@
-#include <stdio.h>
+to#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
 
 int mod_inverse(int a, int m) {
     int m0 = m, t, q;
@@ -44,13 +38,15 @@ int main() {
     phi_n = (p - 1) * (q - 1);
 
     printf("Enter an integer e such that 1 < e < %d and gcd(e, f(n)) = 1: ", phi_n);
-    scanf("%d", &e);
-
-    if (gcd(e, phi_n) != 1) {
-        printf("e and f(n) are not coprime. Choose a different e.\n");
-        return 1;
-    }
-
+for(int i=2;i<phi_n;i++)
+    {
+    	int length= phi_n%i;
+    	if(!length==0)
+    	{
+    		e=i;
+    		break;
+		}
+	}
     d = mod_inverse(e, phi_n);
 
     printf("Public Key: (n = %d, e = %d)\n", n, e);
