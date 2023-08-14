@@ -22,7 +22,6 @@ int main() {
 
     printf("Enter the plaintext: ");
     fgets(plaintext, sizeof(plaintext), stdin);
-    plaintext[strcspn(plaintext, "\n")] = '\0';
 
     printf("Enter the key: ");
     scanf("%s", key);
